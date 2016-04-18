@@ -1,2 +1,2 @@
-# JZapata333.github.io
+# jzapata333.github.io
 My own awesomely awesome website!
