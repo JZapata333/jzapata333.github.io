@@ -71,3 +71,39 @@ console.log(friends);
 var friendList = getRandom(animals);
     friends.push(friendList.name);
     animals[0].friends = friends;
+
+function search(animalName) {
+    for (var i = 0; i < animals.length; i++) {
+        if (animals[i].name === animalName) { 
+            return animals[i];
+        }   
+    }
+    return null;
+}
+
+function edit(animalName, animalObject) {
+    for (var i = 0; i < animals.length; i++) {
+        if (animals[i].name === animalName) {
+            animals[i] = animalObject;
+        }
+    }
+    return null;
+}
+
+function remove(animalName) {
+    for (var i = 0; i < animals.length; i++) {
+        if (animals[i].name === animalName) {
+            return animals.splice(i, 1);    
+        }
+    }
+}
+
+function create(object) {
+    for(var i = 0; i < animals.length; i++) {
+        if (object.name.length <= 0 || object.species.length <= 0 || animals[i].name === object.name) {
+        return null;
+        } 
+    } 
+    animals.push(object);
+}
+
