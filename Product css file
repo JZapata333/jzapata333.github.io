@@ -1,0 +1,201 @@
+#products {
+ display: -webkit-flex;
+ display: flex;
+ -webkit-align-items: center;
+ align-items: center;
+ -webkit-justify-content: center;
+ justify-content: center;
+ -webkit-flex-direction: row;
+ flex-direction: row;
+ -webkit-flex-wrap: wrap;
+ flex-wrap: wrap;
+ -webkit-flex-flow: row wrap;
+ flex-flow: row wrap;
+ -webkit-align-content: flex-end;
+ align-content: flex-end;
+ 
+ 
+}
+
+.items {
+     font-family: Helvetica, Times, serif;
+     font-size: 15px;
+     display: -webkit-flex;
+     display: flex;
+     -webkit-flex-direction: row;
+     flex-direction: row;
+     -webkit-align-items: center;
+     align-items: center;
+     -webkit-justify-content: center;
+     justify-content: center;
+     background-color: #2E0212;
+     border: 1px solid gray;
+     margin-top: 80px;
+     width: 450px;
+     height: 440px;
+     margin-right: 25px;
+     margin-bottom: 25px;
+    }
+    
+    /* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+ body {
+            background-image: url("http://wallpaperhdbase.com/wp-content/gallery/free-background-pictures-for-websites/website-background-full-hd-backgrounds-vintage-red-485057.jpg");
+            width: 900px;
+            padding: 10px;
+            -webkit-border-radius: 5px;
+             -moz-border-radius: 5px;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            color: white;
+        }
+        
+        .product-row {
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 10px;
+            display: -webkit-flex;
+            display: flex;
+            width: 730px;
+            height: 225px;
+            border: 1px solid black;
+            background: #2b303b;
+            margin: 10px;
+        }
+        
+        .desc,
+        .price,
+        .stock,
+        .type {
+            color: white;
+            margin-top: 20px;
+        }
+        
+        .flex-image {
+            width: 173px;
+            height: 173px;
+            margin: 20px;
+            margin-left: 20px;
+            background: none;
+            border: 6px solid black;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 10px;
+        }
+        
+        .input {
+            background: #ffffff;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 10px;
+            margin-left: 960px;
+            color: white;
+            width: 270px;
+        }
+        
+        .dropbtn {
+            background-color: #823B55;
+            color: black;
+            padding: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            height: 34px;
+            border: 1px solid black;
+        }
+        
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #8B5267;
+        }
+        
+        .dropdown {
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            position: relative;
+            display: inline-block;
+            margin-left: 960px;
+            margin-bottom: 10px;
+            color: white;
+            border: 1px solid black;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #823B55;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            color: white;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border: 1px solid black;
+            -moz-border-radius: 5px;
+            
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #86435C
+        }
+        
+        .show {
+            display: block;
+        }
+        
+        .container-1 {
+            width: 300px;
+            vertical-align: middle;
+            white-space: nowrap;
+            position: relative;
+        }

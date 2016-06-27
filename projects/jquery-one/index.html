@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jQuery One</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>jQuery One</h1>
+    <section>
+      <ul>
+        <li>You will code in this index.html file, save and refresh to see the results of your work.</li>
+        <li><a href="directions.html" target="_blank">Directions...</a></li>
+      </ul>
+    </section>
+    <!-- YOUR HTML MARKUP GOES BELOW THIS COMMENT  -->
+    
+    
+    
+    <h1></h1>
+    <p id="target">Happy Berfday!!!</p>
+    <p>Happy Berfday!!!</p>
+    <div class="holder"> 
+    <ul>
+      <li> </li>
+      <li> </li>
+      
+    </ul>
+    </div>
+    <div class="holder"> 
+    
+    <ul>
+      <li> </li>
+      <li> </li>
+    </ul>
+    </div>
+    
+    
+    
+    
+    <!-- YOUR HTML MARKUP GOES ABOVE THIS COMMENT  -->
+  </div>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script>
+  /*global$*/
+  "use strict";
+    let allDivs = $("div");
+    let allUls = $("ul");
+    $("p")
+      .css("color", "magenta")
+      .css("fontWeight", "bold"); 
+    $(".container")
+      .css("background-color", "red");
+      
+    $(".holder")
+      .css("border", "1px solid black");
+      
+      let helloDiv = $("<div>").text("Hello");
+      $(".container").prepend(helloDiv);
+      
+      
+      
+      
+  </script>
+</body>
+
+</html>

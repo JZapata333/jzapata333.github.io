@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <script src="bower_components/lodash/lodash.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/product.css">
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="bower_components/notes/notes.js"></script>
+        <script type="text/javascript" src="js/lib/spin.min.js"></script>
+        <script type="text/javascript" src="js/view/pacifier.js"></script>
+        <script type="text/javascript" src="js/products.js"></script>
+        
+        
+        <title>Product Project</title>
+    </head>
+    <body>
+        <header>
+        <div id="container" class="container">
+            <nav>
+                <h1 class="rainbow">Product Project <br>
+                <em>by Javier Zapata</em>
+                </h1>
+                
+                
+                
+                <input type="text" name="first-input" placeholder="Search" required/>
+                <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Menu</button>
+                <div id="myDropdown" class="dropdown-content">
+                </div>
+            </div>
+            </header>
+             <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+
+                    }
+
+                }
+
+            }
+
+        };
+    </script>
+    </nav>
+            <main>
+                <section id='products'></section>
+            </main>
+            </div>
+                <main>
+                    <ul id="products"></ul>
+                </main>
+    </body>
+</html>
