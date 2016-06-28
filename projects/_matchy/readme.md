@@ -109,10 +109,10 @@ Imagine that our website has a profile page for each animal. On this profile pag
 ## Step 8 - Take Another Break!!
 
 
-# Part 2
+#Part 2
 **All work in this section will be done in my_code.js**
 
-## Step 1 - Search
+##Step 1 - Search
  1. Open up `my_code.js` in your editor.
  2. Implement a function called `search` that:
    - Takes 1 paramater, a name of an animal
@@ -120,14 +120,14 @@ Imagine that our website has a profile page for each animal. On this profile pag
    - Returns `null` if no animal with that name exists
  3. Use the search bar at the top of the page to make sure your function works.
 
-## Step 2 - Edit
+##Step 2 - Edit
  1. Write a function called `edit` that:
    - Takes 2 parameters, a name of an animal and an object 
    - If an animal with that name exists, replace it's entire object with the new object
    - Otherwise do nothing
  2. Test it on the website
 
-## Step 3 - Remove
+##Step 3 - Remove
  1. Write a function called `remove` that:
    - Takes 1 parameter, a name of an animal
    - If an animal with that name exists, remove it
