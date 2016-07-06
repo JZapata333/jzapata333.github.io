@@ -72,23 +72,23 @@ function addFriend(name, object) {
 }
 
 //13. 
-function nonFriends (name, people) {
+function nonFriends (name, list) {
     //find the namd person:
     var namedPerson;
-    for (var i = 0; i < people.length; i++) {
-        if (name === people[i].name) {
-            namedPerson = people[i];
+    for (var i = 0; i < list.length; i++) {
+        if (name === list[i].name) {
+            namedPerson = list[i];
         }
     }
      //see who is not in the name person's friends list
     //make sure not to add the named person to the list
     //spit it back out 
     var out = [];
-    for (var j = 0; j < people.length; j++) {
-        if (people[j].name === name) continue;
+    for (var j = 0; j < list.length; j++) {
+        if (list[j].name === name) continue;
         
-        if (namedPerson.friends.indexOf(people[j].name) === -1) {
-            out.push(people[j].name);
+        if (namedPerson.friends.indexOf(list[j].name) === -1) {
+            out.push(list[j].name);
         }
     }
     return out;

@@ -25,8 +25,9 @@ window._ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-_.identity = function(anything) {
-    return anything;
+
+_.identity = function(value) {
+    return value;
 };
 
 /** _.typeOf()
@@ -49,16 +50,14 @@ _.identity = function(anything) {
 * _.typeOf([1,2,3]) -> "array"
 */
 
-_.typeOf = function(anything) {
-    if(typeof(anything) === 'undefined') {
-        return 'undefined';
-    }
-    else if(anything === null){
-        return "null";
-    }else if(anything.length && typeof(anything) !== 'string') {
-        return "array";
-    }else return typeof(anything);
+
+_.typeOf = function(value) {
+    if(Array.isArray(value)) return 'array'; //when you have many return statements and you don't this is called: returning early
+    if(value === null) return 'null';
+    if(value instanceof Date) return 'date';
+    return typeof value;
 };
+
 
 /** _.first()
 * Arguments:
@@ -77,27 +76,17 @@ _.typeOf = function(anything) {
 *   _.first(["a", "b", "c"], "ponies") -> ["a","b","c"]
 */
 
-_.first = function(array, number) {
-  if(_.typeOf(array) !== 'array') {
-      return [];
-  }
-  if(!number) {
-        return array[0];
-    } 
-    if(array.length < number) {
-        return array;
-    }
-    
-    //Return the first 'n' elements in an array
-    
-    var out = [];
-    for(var i = 0; i < number; i++) {
-        out.push(array[i]);
-    } 
-    return out;
-    
+
+_.first = function(array, n) {
+    let isArray = Array.isArray(array);
+   if (!Array.isArray(array) || n < 0) return [];
+   if (n === undefined) return array[0];
+   if (n > 0) {
+       n = n > array.length ? array.length : n;
+       return array.slice(0, n);
+   }    
 };
-    
+
 
 /** _.last()
 * Arguments:
@@ -114,26 +103,14 @@ _.first = function(array, number) {
 *   _.last(["a","b","c"], 2) -> ["b","c"]
 *   _.last(["a", "b", "c"], "ponies") -> ["a","b","c"]
 */
-_.last = function(array, number) {
-    if(_.typeOf(array) !== 'array') {
-        return [];
-    }
-   if(_.typeOf(number) !== 'number') {
-       return array[array.length - 1];
-   }
-   if(array.length < number) {
-       return array;
-   } 
-   if (number < 0) {
-       return [];
-   }
-   
-   //return the last 'n' elements in an array 
-   var out = [];
-    for(var i = number -1; i < array.length; i++) {
-        out.push(array[i]);
-    } 
-    return out;
+
+_.last = function(array, n) {
+  if(!Array.isArray(array) || n < 0) return [];
+  if(n === undefined) return array[array.length - 1];
+  if(n > array.length) return array;
+  if(n > 0) 
+    n = n > array.length ? array.length : n;
+    return array.slice(n - 1, array.length);
 };
 
 /** _.each()
@@ -151,17 +128,18 @@ _.last = function(array, number) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)}); 
 *      -> should log "a" "b" "c" to the console
 */
-_.each = function(collection, fn) {
-  if(_.typeOf(collection) === 'array') {
-      for(var i = 0; i < collection.length; i++) {
-          fn(collection[i], i, collection); 
-      }
-  } if(_.typeOf(collection) === 'object') {
-      for(var key in collection) {
-          fn(collection[key], key, collection);
-      }
-  } 
+_.each = function(collection, action) {
+        if(Array.isArray(collection)) {
+        for(var i = 0; i < collection.length; i++) {
+            action(collection[i], i, collection);
+        }
+    } else {
+        for (var key in collection) {
+            action(collection[key], key, collection);
+        }
+    }
 };
+
 
 /** _.indexOf()
 * Arguments:
@@ -178,13 +156,17 @@ _.each = function(collection, fn) {
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
+
 _.indexOf = function(array, value) {
   for(var i = 0; i < array.length; i++) {
       if(value === array[i]) {
-        return i;          
-      } 
-  }     return -1;
+          return i;
+      }
+  } return -1;  
 };
+
+
+
 
 /** _.filter()
 * Arguments:
@@ -202,17 +184,17 @@ _.indexOf = function(array, value) {
 *   use _.each in your implementation
 */
 
-    
-_.filter = function(array, fn) {
-    var anArray = [];
-    _.each(array, function(element, i, collection) {
-     if(fn(element, i, collection) === true) {
-        anArray.push(array[i]); 
-        } 
+_.filter = function(array, test) {
+    let output = [];
+  _.each(array, function(value, i, array) {
+    if(test(value, i, array) === true) {
+        output.push(value);
     }
-    );
-    return anArray;
+  });
+  return output;
 };
+
+
 /** _.reject()
 * Arguments:
 *   1) An array
@@ -226,13 +208,22 @@ _.filter = function(array, fn) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
-_.reject = function(array, fn) {
-  return _.filter(array, function(element, i, collection) {
-    return (!fn(element, i, collection));
-  }  
-  );
-};
+_.reject = function(array, test) {
+  return _.filter(array, function(value, i, array) {
+    return (!test(value, i, array));
+  });
 
+//in here, we add "!" to do the opposite of what the filter function does, which is the 'reject' function
+    
+//OR: if you copy _.filter and just change the 'true' boolean to 'false'
+//      let output = [];
+//   _.each(array, function(value, i, array) {
+//     if(test(value, i, array) === false) {
+//         output.push(value);
+//     }
+//   });
+//   return output;
+}
 
 /** _.partition()
 * Arguments:
@@ -252,9 +243,29 @@ _.reject = function(array, fn) {
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-_.partition = function(array, fn) {
-  return [_.filter(array, fn), _.reject(array, fn)];
+
+_.partition = function(array, test) {
+    let output = [];
+    let filterOutput = [];
+    let rejectOutput = [];
+    _.filter(array, function(value, i, array) {
+        if(test(value) === true) {
+            filterOutput.push(value);
+        }
+    });
+    output.push(filterOutput);
+    _.reject(array, function(value, i, array) {
+        if(test(value) === false) {
+            rejectOutput.push(value);
+        }
+    });
+    output.push(rejectOutput);
+    return output;
 };
+
+//_.partition = function(array, test) {
+// return [_.filter(array, test), _.reject(array, test)];
+// };
 
 /** _.unique()
 * Arguments:
@@ -266,28 +277,23 @@ _.partition = function(array, fn) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
-/*_.unique = function(array) {
-    let newArray = [];
-    for(let i = 0; i < array.length; i++) {
-        if(newArray.indexOf(array[i]) === -1) {
-        newArray.push(array[i]);    
-        }
-    }   
-        return newArray;
-};
-*/
+//   for(var i = 0; i < array.length; i++) {
+//       if(value === array[i]) {
+//           return i;
+//       }
+//   } return -1;  
 
-//OR you could also go ahead and write it this way 
-
- _.unique = (array) => {
-    let newArray = [];
-    _.each(array, (el, i, array) => {
-        if (_.indexOf(newArray, el) === -1) newArray.push(el);
-    });
-    return newArray;
+_.unique = function(array) {
+    let output = [];
+    for(var i = 0; i < array.length; i++) {
+        if(_.indexOf(output, array[i]) === -1) {
+            output.push(array[i]);
+        }        
+    }
+        return output;
 };
- 
- 
+
+// }
 /** _.map()
 * Arguments:
 *   1) A collection
@@ -303,15 +309,30 @@ _.partition = function(array, fn) {
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+
 _.map = function(collection, transform) {
+//     let output = [];
+//     //each 'each' function will be inside a conditional statement so there's no need for two output arrays.
+    
+//     if(Array.isArray(collection)) {
+//     _.each(collection, function(value, i, collection) {
+//         output.push(value + i * 4);
+//     });
+//      return output;
+// } else { 
+//     _.each(collection, function(value, key, collection) {
+//       output.push(key + value * 4);
+//     });
+//     return output;
+// }
+
     let newArray = [];
-    _.each(collection, (element, i, collection) => {
-        newArray.push(transform(element, i, collection));    
+    _.each(collection, (value, i, collection) => {
+        newArray.push(transform(value, i, collection));    
         
     });
     return newArray;
 };
-
 /** _.pluck()
 * Arguments:
 *   1) An array of objects
@@ -323,12 +344,14 @@ _.map = function(collection, transform) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-_.pluck = (array, property) => {
-    let newArray = [];
-    _.map(array, function(element, i, array) {
-        newArray.push(element[property]);
+_.pluck = function(array, property) {
+    let output = [];
+    _.map(array, function(value, i, array) {
+        if(value === array[i]) {
+            output.push(array[i].name);
+        }
     });
-    return newArray;
+    return output;
 };
 
 /** _.contains()
@@ -345,9 +368,10 @@ _.pluck = (array, property) => {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
 _.contains = function(array, value) {
-  return (_.indexOf(array, value) === -1) ? false : true;
-};
+return (_.indexOf(array, value) === -1) ? false : true; 
+};  
 
 /** _.every()
 * Arguments:
@@ -369,7 +393,8 @@ _.contains = function(array, value) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-_.every = function(collection, test) {
+
+ _.every = function(collection, test) {
     if(test === undefined) {
     test = _.identity;
     }
@@ -378,7 +403,7 @@ _.every = function(collection, test) {
         if (test(value, i, list) === false)
         truth = false;
     }); return truth;
-};
+ };
 
 /** _.some()
 * Arguments:
@@ -400,20 +425,21 @@ _.every = function(collection, test) {
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
-_.some = function(collection, fn) {
-  if(fn === undefined) {
-    fn = _.identity;
+
+_.some = function(collection, test) {
+      if(test === undefined) {
+    test = _.identity;
     }
     let truthems = false;
     _.each(collection, (value, i, list) => {
-        if (fn(value, i, list) === true)
+        if (test(value, i, list) === true)
         truthems = true;
     }); return truthems;
-};
+}
 
 /** _.reduce()
 * Arguments:
-*   1) A collection
+*   1) An array
 *   2) A function
 *   3) A seed
 * Objectives:
@@ -428,12 +454,8 @@ _.some = function(collection, fn) {
 *   1) What if <seed> is not given?
 * Examples:
 *   _.reduce([1,2,3], function(prev, curr){ return prev + curr}) -> 6
-*/
-
-/* Reduce boils down a list of values and reduces it to one. Start is the initial state
-*    
-*/
-_.reduce = function (collection, fn, start) {
+*/   
+_.reduce = function(collection, fn, start) {
     let prev;
     if (start !== undefined) {
         prev = start;
@@ -464,22 +486,20 @@ _.reduce = function (collection, fn, start) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
-_.extend = (objectOne, objectTwo, ...rest) => {
-    let args = [objectOne, objectTwo].concat(rest);
-   _.reduce(args, (memo, element, i) => {                      //use "i" instead of key because we are dealing with an array of objs
-  
-        return _.reduce = (element, (memo, element, key) => {              //mutating values of objectOne (changing values of Obj1)
-            memo[key] = element;
-            return memo;
-        }, memo);
-        
-    }, args[0]);
-    
-    return args[0];
+_.extend = function(obj1, obj2, ...rest) {
+   let args = [obj1, obj2].concat(rest);
+   _.reduce(args, (memo, el, i) => {
+       
+       return _.reduce(el, (memo, el, key) => {
+           memo[key] = el;
+           return memo;
+         }, memo);
+         
+         
+   }, args[0]);
+   
+ return args[0];  
 };
-
-window._ = _;       //this piece of code makes underpants global so it can be accessed by lodown.js
 
 // This is the proper way to end a javascript library
 }());
