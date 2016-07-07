@@ -486,19 +486,19 @@ _.reduce = function(collection, fn, start) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(obj1, obj2, ...rest) {
-   let args = [obj1, obj2].concat(rest);
-   _.reduce(args, (memo, el, i) => {
-       
-       return _.reduce(el, (memo, el, key) => {
-           memo[key] = el;
-           return memo;
-         }, memo);
-         
-         
-   }, args[0]);
+_.extend = function(objTo) {
+_.each(arguments, function(objFrom) {
+   _.each(objFrom, function(value, key) {
+       objTo[key] = value;
+   }); 
+}); 
+
+return objTo;
+
+
    
- return args[0];  
+//  return args[0]; 
+
 };
 
 // This is the proper way to end a javascript library
