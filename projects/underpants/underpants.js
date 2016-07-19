@@ -495,10 +495,6 @@ _.each(arguments, function(objFrom) {
 
 return objTo;
 
-
-   
-//  return args[0]; 
-
 };
 
 // This is the proper way to end a javascript library

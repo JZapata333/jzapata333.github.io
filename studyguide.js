@@ -114,4 +114,39 @@ function youngest(object) {
     });
 }
 
-each(collection, action);
+console.log(youngest);
+
+
+//Recursion
+
+function reverse2(str) {
+    if(str === "") return "";
+    
+    const rest = str.substr(1);
+    const reversedRest = reverse2(rest);
+    const reversed = reversedRest
+}
+
+console.log()
+
+
+//Example to create recursive function
+
+function search(collection, target) {
+    //create something to hold objects in which target is found (an array such as output = []; )
+    //iterate collection
+    //  is it a String? (base-case)
+    //      if String > is target within string
+    //          push whole object into some output
+    //      isCollection()?
+    //          call search(value).length recursively.
+    //              push whole object into some output.
+    // return output
+}
+
+//create a function that checks if the argument is a collection if its not a string
+
+function isCollection(value) {
+    //weeds out false positives for objects and returns true if 
+    //value is an Array or Object intended as collection 
+}

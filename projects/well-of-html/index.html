@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/notes/notes.js"></script>
+    <title>A Well of HTML</title>
+    <style type="text/css">
+        body {
+            background-color: black;
+        }
+        
+        h1 {
+            color: #ccccc6;
+        }
+        
+        p {
+            color: white;
+        }
+        
+        h2 {
+            color: #ccccc6;
+        }
+        h3 {
+            color: white;
+        }
+        
+        .dustieprs {
+            display: block;
+            width: 560px; 
+            top: 0; right: 0; 
+            bottom: 0; left: 0;
+            margin: auto;
+        }
+        
+        .example-form {
+            /* Just to center the form on the page, use: margin: 0 auto;*/
+            position: relative;
+            bottom: 0;
+            margin: left;
+            width: 400px;
+            /* To see the outline of the form */
+            padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em;
+        }
+
+        .example-form div + div {
+            margin-top: 1em;
+        }
+
+        .example-form label {
+            /* To make sure that all labels have the same size and are properly aligned */
+            display: inline-block;
+            width: 90px;
+        }
+
+        .example-form input,
+        .example-form textarea {
+            /* To make sure that all text fields have the same font settings
+            By default, textareas have a monospace font */
+            font: 1em sans-serif;
+            /* To give the same size to all text field */
+            width: 300px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            /* To harmonize the look & feel of text field border */
+            border: 1px solid #999;
+        }
+
+        .example-form input:focus,
+        .example-form textarea:focus {
+            /* To give a little highlight on active elements */
+            border-color: #000;
+        }
+
+        .example-form textarea {
+            /* To properly align multiline text fields with their labels */
+            vertical-align: top;
+            /* To give enough room to type some text */
+            height: 5em;
+            /* To allow users to resize any textarea vertically
+            It does not work on every browsers */
+            resize: vertical;
+        }
+
+        h4 {
+            color: #ccccc6;
+        }
+
+        ul {
+            color: #ccccc6;
+        }
+        ol {
+            color: #ccccc6;
+        }
+        
+        table {
+            margin: 20px;
+            border: 1px white;
+        }
+
+        table,
+        th,
+        td {
+            padding: 4px;
+            border: 1px white;
+        }
+        
+        .table1 {
+            color: #ccccc6;
+            
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <!-- ALL YOUR MARKUP GOES BELOW HERE -->
+        <img src="http://www.prsguitars.com/imgs/logo.png" height="120"/>
+            <h1>A Showcase</h1>
+                <p>     From their Private Stock selection, to their affordable SE and S2 models, to basses and amplifiers, Paul Reed Smith 
+                Guitars has proven their success in only 30 years of production. An American guitar manufacturer from Maryland, USA, PRS
+                has a reputation of building high end electric guitars, as well as their custom shop instruments. Some PRS endorsers include
+                Carlos Santana, Gustavo Cerati, Mikael Akerfeldt, Dave Navarro, Al Di Meola, Mark Tremonti, Dustie Warring, and Orianthi.
+                <br>
+                <br>
+                The bodies of PRS guitars are mostly built of mahogany with maple tops. Most necks are made of mahogany, although
+                some neck models are made of Indian or Brazilian rosewood, while the fingerboards on production are made of rosewood. These
+                are decorated with standard moon inlays or the optional but <em>sought after</em> birds, fashioned from pearl or paua shell.
+                Nuts are made of synthetic materials and the tuners are PRS's own design. PRS offers three original bridge designs: 
+                one-piece pre-intonated stoptail, vibrato and their wrapover tailpiece. Pickups are designed and wound in-house. While most
+                pickups found in PRS guitars are humbuckers, some models include single coils or double single coils wound in opposing directions,
+                each of these intended for the neck and bridge positions.
+                
+                PRS Guitars also has a focus on acoustic guitars, basses, double neck guitars, and amplifiers. We hope that you will enjoy the
+                this small showcasing of some of the best and most well-known PRS Guitars.
+                
+            </p>
+            <a href="https://en.wikipedia.org/wiki/PRS_Guitars">Visit the PRS Guitars Wikipedia article</a> 
+            <br>
+            <img src="http://www.prsguitars.com/imgs/privatestock/electrics/5041hero.jpg" height="500"/>
+            <h2>Critically-Acclaimed Models</h2>
+            <div class="custom24">
+                 <h3>Custom 24</h3>
+                    <p>
+                        The guitar that started it all
+                    </p>
+                    <img src="http://www.prsguitars.com/custom24/hero_large.jpg" height="405"/>
+                    <h4>Features</h4>
+                    <ul>
+                        <li>85/15 Pickups</li>
+                        <li>24 Frets</li>
+                        <li>PRS Patented Tremolo</li>
+                    </ul>
+            </div>
+            <div class="sc245">
+                <h3>SC 245</h3>
+                    <p>
+                        Classic and Resonant
+                    </p>
+                    <img src="http://www.prsguitars.com/sc245/hero_large.jpg" height="405"/>
+                    <h4>Features</h4>
+                    <ul>
+                        <li>58/15 Pickups with 2 Volume & 2 Tone Controls</li>
+                        <li>Bound Rosewood Fretboard</li>
+                        <li>24.5" Scale Length</li>
+                    </ul>
+            </div>
+            <div class="p245">
+                <h3>P245</h3>
+                    <p>
+                        Vintage Inspired, Modern Versatility
+                    </p>
+                    <img src="http://www.prsguitars.com/p245/hero_large.jpg" height="405">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Acoustic Piezo Pickup</li>
+                        <li>24.5" Scale Length</li>
+                        <li>PRS Adjustable Stoptail</li>
+                    </ul>
+            </div>
+            <div class="hollowbodyII">
+                <h3>Hollowbody II</h3>
+                    <p>
+                        Extraordinary Resonance
+                    </p>
+                    <img src="http://www.prsguitars.com/hollowbody2/hero_large.jpg" height="405"/>
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Acoustic Piezo Pickup</li>
+                        <li>Maple Top & Back</li>
+                        <li>PRS Adjustable Stoptail</li>
+                    </ul>
+            </div>
+            <div class="Hollowbody 12">
+                <h3>Hollowbody 12</h3>
+                    <p>
+                        12-String Tone, Perfect Intonation
+                    </p>
+                    <img src="http://www.prsguitars.com/hollowbody12/hero_large.jpg" height="405"/>
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Maple Top with Mahogany Back</li>
+                        <li>PRS 12-String Adjustable Stoptail</li>
+                        <li>Locking Tuners</li>
+                    </ul>
+            </div>
+            
+            <br>
+            <br>
+            <div class="dustieprs">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RECrKRsohcs" frameborder="0" allowfullscreen></iframe>
+                <br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/EePxxsknsmE" frameborder="0" allowfullscreen></iframe>
+                <br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Wfy2GR7IGH4" frameborder="0" allowfullscreen></iframe>
+                <br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZbxfKStqh38" frameborder="0" allowfullscreen></iframe>
+                <br>
+            </div>
+                <br>
+            <h4>Interested in owning a PRS? These are the following retailers of PRS Guitars in Louisiana</h4>
+            <ol>
+                <li>Guitar Center #713 -- SE DEALER ONLY -- 5702 Johnson St. Lafayette, LA 70503</li>
+                <li>C & M Music Center # 5 1727 N. Causeway Blvd. Mandeville, LA 70471 (504) 468-8688</li>
+                <li>Guitar Center # 710 9001 Florida Blvd. Baton Rouge, LA 70815 (225) 927-0158</li>
+                <li>Matt's Music 3235 Breard St. Monroe, LA 71201 (318) 387-3628</li> 
+                <li>C & M Music Center # 4 5801 W. Park Ave. Houma, LA 70364 (504) 468-8688</li>
+                <li>C & M Music Center # 6 5427 Johnston Street Lafayette, LA 70503 (337) 989-2838</li>
+                <li>Guitar Center # 711 1000 S. Clearview Parkway Harahan, LA 70123 (504) 818-0338</li>
+                <li>Music Inc. of Louisana 313 E. Cornerview Road Gonzales, LA 70737 (225) 647-8681</li>
+                <li>C & M Music Center 2515 Williams Blvd. Kenner, LA 70062 (504) 468-8688</li>
+                <li>C & M Music Center #2 2007 Stumpf Blvd. Gretna, LA 70056 (504) 468-8688</li>
+                <li>Guitar Center # 712 7460 Youree Dr. Suite T Shreveport, LA 71105</li>
+                <li>Nugent Music & Audio 2901- A Hwy 28 E Pineville, LA 71360 (318) 473-9999</li>
+            </ol>
+            <br>
+        <form class="example-form">
+        <div>
+            <h3>Contact us</h3>
+            <label for="name">Name:</label>
+            <input type="text" id="name" />
+        </div>
+        <div>
+            <label for="mail">E-mail:</label>
+            <input type="email" id="mail" />
+        </div>
+        <div>
+            <label for="msg">Message:</label>
+            <textarea id="msg"></textarea>
+        </div>
+
+        <div class="button">
+            <button class="btn btn-primary" type="submit">Send your message</button>
+        </div>
+    </form>
+    
+    <table class="table1">
+    <thead>
+        <tr>
+            <th>PRS Contact Info</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td>
+                Address
+            </td>
+            <td>
+                PRS Guitars
+                380 Log Canoe Circle
+                Stevensville, MD 21666
+            </td>
+        </tr>
+        <tr>
+            <td>Phone #</td>
+            <td>410-643-9970</td>
+            
+        </tr>
+        <tr>
+            <td>Fax #</td>
+            <td>410-643-9980</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><a href="mailto:custserv@prsguitars.com">custserv@prsguitars.com</a></td>
+        </tr>
+    </tbody>
+</table>
+<p>To find the PRS distributor in your country, please visit <a href="http://www.prsguitars.com/dealers/distributors/">our distributors page</a>.</p>
+        <!-- ALL YOUR MARKUP GOES ABOVE HERE -->
+    </div>
+
+    
+    <script>
+        // $(function () {
+        //     window.opspark.notes.show();
+        // });
+    </script>
+</body>
+
+</html>
