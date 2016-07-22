@@ -17,16 +17,16 @@
     //BUILDING AN INDIVIDUAL PRODUCT
     const createProduct = (product) => {
         
-        //LOW STOCK CONDITION
+        //LOW STOCK CONDITION: checks if stock is low, 'else' it will display it normally
         let stock = product.stock;
         if (stock <= 10) {
-            stock = ("<br><br>Only " + stock + " left!");
+            stock = ("<br><br>Only " + stock + "left!");
         }
         else {
             stock = "<br><br>In Stock: " + product.stock;
         }
         
-        //ADDING ALL THE ATTRIBUTES
+        //ADDING ALL THE ATTRIBUTES: createProduct function then brings all parts of description together
         return $("<li class='items' id='"+ product.id +"' >")
             .text(product.desc)
             .append("<br><br>Price: $" + product.price)
