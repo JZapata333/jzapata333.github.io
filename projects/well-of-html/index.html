@@ -16,6 +16,8 @@
         
         h1 {
             color: #ccccc6;
+            /*font-style: italic;*/
+            font-family: cursive;
         }
         
         p {
@@ -24,6 +26,7 @@
         
         h2 {
             color: #ccccc6;
+            font-family: cursive;
         }
         h3 {
             color: white;
@@ -136,6 +139,9 @@
             margin-left: 125px;
             color: white;
             /*background-color: #2d2d2d;*/
+            z-index: 1;
+            
+            
         }
 
         .row-img {
@@ -145,14 +151,44 @@
         #div-margin {
             margin-left: 50px;
         }
+        
+        .container-fluid {
+            background-color: black;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 5;
+        }
     </style>
 </head>
 
-<body>
+<body id="home">
+    <nav>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+            <div class="navbar-header">
+              
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#home">Home</a></li>
+              <li><a href="#acclaimed">Critically Aclaimed</a></li>
+              <li><a href="#videos">Videos</a></li> 
+              <li><a href="#values">Values</a></li>
+              <li><a href="#buy">Buy</a></li>
+              <li><a href="#contact-us">Contact Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            </div>
+        </nav>
+    </nav>
     <div id="container" class="container">
         <!-- ALL YOUR MARKUP GOES BELOW HERE -->
         <img src="http://www.prsguitars.com/imgs/logo.png" height="120"/>
-            <h1>A Showcase</h1>
+            <h2>A Showcase</h2>
                 <p>     From their Private Stock selection, to their affordable SE and S2 models, to basses and amplifiers, Paul Reed Smith 
                 Guitars has proven their success in only 30 years of production. An American guitar manufacturer from Maryland, USA, PRS
                 has a reputation of building high end electric guitars, as well as their custom shop instruments. Some PRS endorsers include
@@ -174,6 +210,9 @@
             <a href="https://en.wikipedia.org/wiki/PRS_Guitars">Visit the PRS Guitars Wikipedia article</a> 
             <br>
             <img src="http://www.prsguitars.com/imgs/privatestock/electrics/5041hero.jpg" height="500"/>
+            <div id="acclaimed"/>
+            <br>
+            <br>
             <h2>Critically-Acclaimed Models</h2>
             <div class="custom24">
                  <h3>Custom 24</h3>
@@ -243,7 +282,7 @@
             
             <br>
             <br>
-            <div class="dustieprs">
+            <div class="dustieprs" id="videos">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/RECrKRsohcs" frameborder="0" allowfullscreen></iframe>
                 <br>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/EePxxsknsmE" frameborder="0" allowfullscreen></iframe>
@@ -253,6 +292,7 @@
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZbxfKStqh38" frameborder="0" allowfullscreen></iframe>
                 <br>
             </div>
+                <br>
                 <br>
             <div class="flex-row">
                 <div>
@@ -267,10 +307,12 @@
                 <div>
                     <img src="http://prsguitars.com/grainger4/photo3.jpg" height="150"/>
                 </div>
+                <div id="values"></div>
                 <div>
                     <img src="http://prsguitars.com/singlecuthollowbody2/photo6.jpg" height="150"/>
                 </div>
             </div>
+                <br>
                 <br>
                 
 <div class="example-grid">
@@ -330,14 +372,18 @@
             The final instrument reflects all of the thought, work, and passion that are put into every step of the building process.
             If all the details are cared for, a guitar can be much more than the sum of its parts.
         </div>
+        
     </div>
        
   </div>
   </div>
   
 </div>
+<div id="buy"/>
 <br>
-<div id="div-margin">
+<br>
+<br>
+<div >
             <h4>Interested in owning a PRS? These are the following retailers of PRS Guitars in Louisiana</h4>
             <ol>
                 <li>Guitar Center #713 -- SE DEALER ONLY -- 5702 Johnson St. Lafayette, LA 70503</li>
@@ -353,6 +399,9 @@
                 <li>Guitar Center # 712 7460 Youree Dr. Suite T Shreveport, LA 71105</li>
                 <li>Nugent Music & Audio 2901- A Hwy 28 E Pineville, LA 71360 (318) 473-9999</li>
             </ol>
+            <br>
+            <div id="contact-us"/>
+            <br>
             <br>
         <form class="example-form">
         <div>
