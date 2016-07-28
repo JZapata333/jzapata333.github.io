@@ -84,9 +84,15 @@ _.first = function(array, n) {
    if (n > 0) {
        n = n > array.length ? array.length : n;
        return array.slice(0, n);
-   }    
+   }
 };
 
+/**
+ * first takes an array or "collection", and tests for arrays. First argument is 
+ * that if the collection is not an array or if the number is less than zero, to
+ * return empty array []. If n is undefined, return first value of array. And if
+ * n is greater than zero, give n the value of boolean if the length of the array or n
+ *
 
 /** _.last()
 * Arguments:
