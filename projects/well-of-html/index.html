@@ -15,7 +15,7 @@
         }
         
         h1 {
-            color: #ccccc6;
+            color: white;
             /*font-style: italic;*/
             font-family: cursive;
         }
@@ -25,7 +25,7 @@
         }
         
         h2 {
-            color: #ccccc6;
+            color: white;
             font-family: cursive;
         }
         h3 {
@@ -149,7 +149,8 @@
         }
         
         #div-margin {
-            margin-left: 50px;
+            margin: 50px;
+            padding-left: 60px;
         }
         
         .container-fluid {
@@ -159,6 +160,13 @@
             top: 0;
             width: 100%;
             z-index: 5;
+        }
+        
+        .grey-background {
+            background-color: #2d2d2d;
+            margin: -62px;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
     </style>
 </head>
@@ -279,9 +287,10 @@
                         <li>Locking Tuners</li>
                     </ul>
             </div>
-            
             <br>
             <br>
+            <br>
+            <div class='grey-background'>
             <div class="dustieprs" id="videos">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/RECrKRsohcs" frameborder="0" allowfullscreen></iframe>
                 <br>
@@ -292,8 +301,14 @@
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZbxfKStqh38" frameborder="0" allowfullscreen></iframe>
                 <br>
             </div>
+            </div>
                 <br>
                 <br>
+                <div id="values"/>
+                <br>
+            <div>
+                <img src="http://willcuttguitars.com/images/prs_sig_logo.png" id="prs-sig" align="middle"/>
+            </div>
             <div class="flex-row">
                 <div>
                     <img src="http://prsguitars.com/floyd_custom24/photo4.jpg" height="150"/>
@@ -307,15 +322,13 @@
                 <div>
                     <img src="http://prsguitars.com/grainger4/photo3.jpg" height="150"/>
                 </div>
-                <div id="values"></div>
+                
                 <div>
                     <img src="http://prsguitars.com/singlecuthollowbody2/photo6.jpg" height="150"/>
                 </div>
             </div>
-                <br>
-                <br>
                 
-<div class="example-grid">
+<div class="example-grid" id="div-margin" class='grey-background'>
   <div class="row">
       <div class="col-md-6"><img src="http://prsguitars.com/imgs/components/core_philosophy/woods.jpg" class="row-img" height="200"></img>
       </div>
@@ -382,8 +395,7 @@
 <div id="buy"/>
 <br>
 <br>
-<br>
-<div >
+<div>
             <h4>Interested in owning a PRS? These are the following retailers of PRS Guitars in Louisiana</h4>
             <ol>
                 <li>Guitar Center #713 -- SE DEALER ONLY -- 5702 Johnson St. Lafayette, LA 70503</li>
