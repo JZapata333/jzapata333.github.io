@@ -161,7 +161,7 @@ $(document).on('ready', function(event) {
              
             var mapped = _.map(_.uniq(_.pluck(data, 'type')), function (type) {
                 $("#myDropdown").append($('<li>').append("<a href = '#' id = '"+ type + "'>" + type[0].toUpperCase() + type.slice(1)  + "</a>"));
-                $("#" + type).on('click', function (e) {
+                $("#" + type).one('click', function (e) {
                 $('#products').empty();
                 var filtered = _.filter(data, function (product) {
                     if(product.type === type) {
